@@ -23,9 +23,10 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
   const { route } = layout.sitecore;
   const mainClassPageEditing = mode.isEditing ? "editing-mode" : "prod-mode";
 
-  mode.isDesignLibrary = true;
+  //--mode.isDesignLibrary = true;
   // mode.designLibrary = mode.designLibrary || {};
-  mode.designLibrary.isAtomsMode = true;
+  // QS: mode=library-atoms
+  //--mode.designLibrary.isAtomsMode = true;
   // console.log(page);
 
   return (
