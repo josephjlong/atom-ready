@@ -28,7 +28,7 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
   //--mode.isDesignLibrary = true;
   // mode.designLibrary = mode.designLibrary || {};
   // QS: mode=library-atoms
-  //--mode.designLibrary.isAtomsMode = true;
+  mode.designLibrary.isAtomsMode = true;
   // console.log(page);
 
   return (
