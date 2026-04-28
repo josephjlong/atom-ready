@@ -23,6 +23,8 @@ const Layout = ({ page }: LayoutProps): JSX.Element => {
   const { route } = layout.sitecore;
   const mainClassPageEditing = mode.isEditing ? "editing-mode" : "prod-mode";
 
+  console.log("-----------mode", mode);
+
   //--mode.isDesignLibrary = true;
   // mode.designLibrary = mode.designLibrary || {};
   // QS: mode=library-atoms
