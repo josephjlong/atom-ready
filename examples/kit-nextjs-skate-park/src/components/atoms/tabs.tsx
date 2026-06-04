@@ -3,9 +3,9 @@ import { shadcnComponentDefinitions } from "@json-render/shadcn/catalog";
 
 import { createAtom } from "@sitecore-content-sdk/nextjs";
 
-const ButtonAtom = createAtom(() => shadcnComponents.Button, {
-  name: "Button",
-  ...shadcnComponentDefinitions.Button,
+const TabsAtom = createAtom(() => shadcnComponents.Tabs, {
+  name: "Tabs",
+  ...shadcnComponentDefinitions.Tabs,
 });
 
-export { ButtonAtom };
+export { TabsAtom };
