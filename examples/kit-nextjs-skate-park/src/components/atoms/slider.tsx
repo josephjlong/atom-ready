@@ -6,6 +6,7 @@ import { createAtom } from "@sitecore-content-sdk/nextjs";
 const SliderAtom = createAtom(() => shadcnComponents.Slider, {
   name: "Slider",
   ...shadcnComponentDefinitions.Slider,
+  props: shadcnComponentDefinitions.Slider.props.shape,
 });
 
 export { SliderAtom };

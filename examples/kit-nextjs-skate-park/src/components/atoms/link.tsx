@@ -6,6 +6,7 @@ import { createAtom } from "@sitecore-content-sdk/nextjs";
 const LinkAtom = createAtom(() => shadcnComponents.Link, {
   name: "Link",
   ...shadcnComponentDefinitions.Link,
+  props: shadcnComponentDefinitions.Link.props.shape,
 });
 
 export { LinkAtom };

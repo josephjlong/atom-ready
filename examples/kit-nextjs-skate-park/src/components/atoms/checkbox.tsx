@@ -6,6 +6,7 @@ import { createAtom } from "@sitecore-content-sdk/nextjs";
 const CheckboxAtom = createAtom(() => shadcnComponents.Checkbox, {
   name: "Checkbox",
   ...shadcnComponentDefinitions.Checkbox,
+  props: shadcnComponentDefinitions.Checkbox.props.shape,
 });
 
 export { CheckboxAtom };

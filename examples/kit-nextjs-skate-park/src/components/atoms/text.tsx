@@ -6,6 +6,7 @@ import { createAtom } from "@sitecore-content-sdk/nextjs";
 const TextAtom = createAtom(() => shadcnComponents.Text, {
   name: "Text",
   ...shadcnComponentDefinitions.Text,
+  props: shadcnComponentDefinitions.Text.props.shape,
 });
 
 export { TextAtom };

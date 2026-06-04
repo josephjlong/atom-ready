@@ -6,6 +6,7 @@ import { createAtom } from "@sitecore-content-sdk/nextjs";
 const ToggleGroupAtom = createAtom(() => shadcnComponents.ToggleGroup, {
   name: "ToggleGroup",
   ...shadcnComponentDefinitions.ToggleGroup,
+  props: shadcnComponentDefinitions.ToggleGroup.props.shape,
 });
 
 export { ToggleGroupAtom };

@@ -6,6 +6,7 @@ import { createAtom } from "@sitecore-content-sdk/nextjs";
 const CardAtom = createAtom(() => shadcnComponents.Card, {
   name: "Card",
   ...shadcnComponentDefinitions.Card,
+  props: shadcnComponentDefinitions.Card.props.shape,
 });
 
 export { CardAtom };

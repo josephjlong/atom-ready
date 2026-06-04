@@ -6,6 +6,7 @@ import { createAtom } from "@sitecore-content-sdk/nextjs";
 const ButtonAtom = createAtom(() => shadcnComponents.Button, {
   name: "Button",
   ...shadcnComponentDefinitions.Button,
+  props: shadcnComponentDefinitions.Button.props.shape,
 });
 
 export { ButtonAtom };

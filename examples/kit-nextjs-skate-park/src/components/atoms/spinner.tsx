@@ -6,6 +6,7 @@ import { createAtom } from "@sitecore-content-sdk/nextjs";
 const SpinnerAtom = createAtom(() => shadcnComponents.Spinner, {
   name: "Spinner",
   ...shadcnComponentDefinitions.Spinner,
+  props: shadcnComponentDefinitions.Spinner.props.shape,
 });
 
 export { SpinnerAtom };

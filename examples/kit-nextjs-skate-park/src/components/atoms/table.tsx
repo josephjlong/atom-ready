@@ -6,6 +6,7 @@ import { createAtom } from "@sitecore-content-sdk/nextjs";
 const TableAtom = createAtom(() => shadcnComponents.Table, {
   name: "Table",
   ...shadcnComponentDefinitions.Table,
+  props: shadcnComponentDefinitions.Table.props.shape,
 });
 
 export { TableAtom };
