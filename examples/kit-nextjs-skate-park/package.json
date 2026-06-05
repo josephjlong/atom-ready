@@ -28,6 +28,7 @@
     "start": "cross-env-shell NODE_ENV=production npm-run-all --serial build next:start"
   },
   "dependencies": {
+    "@json-render/react": "^0.19.0",
     "@json-render/shadcn": "^0.19.0",
     "@sitecore-content-sdk/analytics-core": "^2.0.0-beta.4",
     "@sitecore-content-sdk/events": "^2.0.0-beta.4",
