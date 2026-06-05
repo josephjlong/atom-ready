@@ -51,6 +51,10 @@ export const catalog = defineAtomsCatalog({
       params: z.object({ message: z.string() }),
       description: "Log a message to the console",
     },
+    buttonClick: {
+      params: z.object({ message: z.string().nullable() }),
+      description: "Handle a button click event",
+    },
   },
 });
 
@@ -96,6 +100,9 @@ export const registry = defineAtomsRegistry(catalog, {
   actions: {
     log: async (params) => {
       console.log("Log action:", params?.message);
+    },
+    buttonClick: async (params) => {
+      console.log("Button clicked with message:", params?.message);
     },
   },
 });
