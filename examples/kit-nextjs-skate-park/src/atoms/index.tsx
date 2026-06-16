@@ -2,8 +2,8 @@ import { z } from "zod";
 import {
   defineAtomsCatalog,
   defineAtomsRegistry,
+  useBoundProp,
 } from "@sitecore-content-sdk/nextjs";
-import { useBoundProp } from "@json-render/react";
 
 export const catalog = defineAtomsCatalog({
   version: "1.0.1",
