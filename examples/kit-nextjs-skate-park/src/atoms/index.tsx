@@ -4,86 +4,90 @@ import {
   defineAtomsRegistry,
   useBoundProp,
 } from "@sitecore-content-sdk/nextjs";
+import { shadcnComponentDefinitions } from "@json-render/shadcn/catalog";
+import { shadcnComponents } from "@json-render/shadcn";
 
 export const catalog = defineAtomsCatalog({
   version: "1.0.1",
   components: {
-    Container: {
-      version: "1.0.0",
-      props: z.object({}),
-      description: "A generic layout container",
-      slots: ["default"],
-    },
-    InputField: {
-      version: "1.0.0",
-      props: z.object({
-        label: z.string().optional(),
-        value: z.string().optional(),
-        placeholder: z.string().optional(),
-      }),
-      description: "A text input with two-way state binding via $bindState",
-    },
-    Button: {
-      version: "1.0.0",
-      props: z.object({
-        label: z.string(),
-      }),
-      description: "A button that emits a press event on click",
-    },
-    ResultField: {
-      version: "1.0.0",
-      props: z.object({
-        label: z.string().optional(),
-        value: z.string().optional(),
-      }),
-      description: "A read-only field that displays a value from state",
-    },
+    Card: shadcnComponentDefinitions.Card,
+    Stack: shadcnComponentDefinitions.Stack,
+    Grid: shadcnComponentDefinitions.Grid,
+    Separator: shadcnComponentDefinitions.Separator,
+    Tabs: shadcnComponentDefinitions.Tabs,
+    Accordion: shadcnComponentDefinitions.Accordion,
+    Collapsible: shadcnComponentDefinitions.Collapsible,
+    Dialog: shadcnComponentDefinitions.Dialog,
+    Drawer: shadcnComponentDefinitions.Drawer,
+    Carousel: shadcnComponentDefinitions.Carousel,
+    Table: shadcnComponentDefinitions.Table,
+    Heading: shadcnComponentDefinitions.Heading,
+    Text: shadcnComponentDefinitions.Text,
+    Image: shadcnComponentDefinitions.Image,
+    Avatar: shadcnComponentDefinitions.Avatar,
+    Badge: shadcnComponentDefinitions.Badge,
+    Alert: shadcnComponentDefinitions.Alert,
+    Progress: shadcnComponentDefinitions.Progress,
+    Skeleton: shadcnComponentDefinitions.Skeleton,
+    Spinner: shadcnComponentDefinitions.Spinner,
+    Tooltip: shadcnComponentDefinitions.Tooltip,
+    Popover: shadcnComponentDefinitions.Popover,
+    Input: shadcnComponentDefinitions.Input,
+    Textarea: shadcnComponentDefinitions.Textarea,
+    Select: shadcnComponentDefinitions.Select,
+    Checkbox: shadcnComponentDefinitions.Checkbox,
+    Radio: shadcnComponentDefinitions.Radio,
+    Switch: shadcnComponentDefinitions.Switch,
+    Slider: shadcnComponentDefinitions.Slider,
+    Button: shadcnComponentDefinitions.Button,
+    Link: shadcnComponentDefinitions.Link,
+    DropdownMenu: shadcnComponentDefinitions.DropdownMenu,
+    Toggle: shadcnComponentDefinitions.Toggle,
+    ToggleGroup: shadcnComponentDefinitions.ToggleGroup,
+    ButtonGroup: shadcnComponentDefinitions.ButtonGroup,
+    Pagination: shadcnComponentDefinitions.Pagination,
   },
-  actions: {
-    toUppercase: {
-      params: z.object({ text: z.string().optional() }),
-      description:
-        "Converts text to uppercase and stores it in the result state",
-    },
-  },
+  actions: {},
 });
 
 export const registry = defineAtomsRegistry(catalog, {
   components: {
-    Container: ({ children }) => <div>{children}</div>,
-    InputField: ({ props, bindings }) => {
-      const [value, setValue] = useBoundProp<string>(
-        props.value,
-        bindings?.value,
-      );
-      return (
-        <div>
-          {props.label && <label>{props.label}</label>}
-          <input
-            type="text"
-            value={value ?? ""}
-            placeholder={props.placeholder ?? ""}
-            onChange={(e) => setValue(e.target.value)}
-          />
-        </div>
-      );
-    },
-    Button: ({ props, emit }) => (
-      <button onClick={() => emit("press")}>{props.label}</button>
-    ),
-    ResultField: ({ props }) => (
-      <div>
-        {props.label && <label>{props.label}</label>}
-        <input type="text" readOnly value={props.value ?? ""} />
-      </div>
-    ),
+    Card: shadcnComponents.Card,
+    Stack: shadcnComponents.Stack,
+    Grid: shadcnComponents.Grid,
+    Separator: shadcnComponents.Separator,
+    Tabs: shadcnComponents.Tabs,
+    Accordion: shadcnComponents.Accordion,
+    Collapsible: shadcnComponents.Collapsible,
+    Dialog: shadcnComponents.Dialog,
+    Drawer: shadcnComponents.Drawer,
+    Carousel: shadcnComponents.Carousel,
+    Table: shadcnComponents.Table,
+    Heading: shadcnComponents.Heading,
+    Text: shadcnComponents.Text,
+    Image: shadcnComponents.Image,
+    Avatar: shadcnComponents.Avatar,
+    Badge: shadcnComponents.Badge,
+    Alert: shadcnComponents.Alert,
+    Progress: shadcnComponents.Progress,
+    Skeleton: shadcnComponents.Skeleton,
+    Spinner: shadcnComponents.Spinner,
+    Tooltip: shadcnComponents.Tooltip,
+    Popover: shadcnComponents.Popover,
+    Input: shadcnComponents.Input,
+    Textarea: shadcnComponents.Textarea,
+    Select: shadcnComponents.Select,
+    Checkbox: shadcnComponents.Checkbox,
+    Radio: shadcnComponents.Radio,
+    Switch: shadcnComponents.Switch,
+    Slider: shadcnComponents.Slider,
+    Button: shadcnComponents.Button,
+    Link: shadcnComponents.Link,
+    DropdownMenu: shadcnComponents.DropdownMenu,
+    Toggle: shadcnComponents.Toggle,
+    ToggleGroup: shadcnComponents.ToggleGroup,
+    ButtonGroup: shadcnComponents.ButtonGroup,
+    Pagination: shadcnComponents.Pagination,
   },
-  actions: {
-    toUppercase: async (params, setState) => {
-      setState((prev) => ({
-        ...prev,
-        result: (params?.text ?? "").toUpperCase(),
-      }));
-    },
-  },
+  actions: {},
 });
