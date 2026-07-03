@@ -2,10 +2,10 @@ import { z } from "zod";
 import {
   defineAtomsCatalog,
   defineAtomsRegistry,
-  useBoundProp,
 } from "@sitecore-content-sdk/nextjs";
 import { shadcnComponentDefinitions } from "@json-render/shadcn/catalog";
 import { shadcnComponents } from "@json-render/shadcn";
+import { TextAtom } from "src/atoms/TextAtom";
 
 export const catalog = defineAtomsCatalog({
   version: "1.0.1",
@@ -22,7 +22,16 @@ export const catalog = defineAtomsCatalog({
     Carousel: shadcnComponentDefinitions.Carousel,
     Table: shadcnComponentDefinitions.Table,
     Heading: shadcnComponentDefinitions.Heading,
-    Text: shadcnComponentDefinitions.Text,
+    Text: {
+      props: z.object({
+        text: z.string(),
+      }),
+      description:
+        "The Text component displays text content with various styling options.",
+      example: {
+        text: "Sample text",
+      },
+    },
     Image: shadcnComponentDefinitions.Image,
     Avatar: shadcnComponentDefinitions.Avatar,
     Badge: shadcnComponentDefinitions.Badge,
@@ -64,7 +73,7 @@ export const registry = defineAtomsRegistry(catalog, {
     Carousel: shadcnComponents.Carousel,
     Table: shadcnComponents.Table,
     Heading: shadcnComponents.Heading,
-    Text: shadcnComponents.Text,
+    Text: TextAtom,
     Image: shadcnComponents.Image,
     Avatar: shadcnComponents.Avatar,
     Badge: shadcnComponents.Badge,
