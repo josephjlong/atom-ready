@@ -10,9 +10,18 @@ import { TextAtom } from "src/atoms/TextAtom";
 export const catalog = defineAtomsCatalog({
   version: "1.0.1",
   components: {
-    Card: shadcnComponentDefinitions.Card,
-    Stack: shadcnComponentDefinitions.Stack,
-    Grid: shadcnComponentDefinitions.Grid,
+    Card: {
+      ...shadcnComponentDefinitions.Card,
+      props: shadcnComponentDefinitions.Card.props.omit({ className: true }),
+    },
+    Stack: {
+      ...shadcnComponentDefinitions.Stack,
+      props: shadcnComponentDefinitions.Stack.props.omit({ className: true }),
+    },
+    Grid: {
+      ...shadcnComponentDefinitions.Grid,
+      props: shadcnComponentDefinitions.Grid.props.omit({ className: true }),
+    },
     Separator: shadcnComponentDefinitions.Separator,
     Tabs: shadcnComponentDefinitions.Tabs,
     Accordion: shadcnComponentDefinitions.Accordion,
