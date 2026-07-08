@@ -2,6 +2,7 @@ import { z } from "zod";
 import {
   defineAtomsCatalog,
   defineAtomsRegistry,
+  textFieldSchema,
 } from "@sitecore-content-sdk/nextjs";
 import { shadcnComponentDefinitions } from "@json-render/shadcn/catalog";
 import { shadcnComponents } from "@json-render/shadcn";
@@ -33,8 +34,7 @@ export const catalog = defineAtomsCatalog({
     Heading: shadcnComponentDefinitions.Heading,
     Text: {
       props: z.object({
-        text: z.string(),
-        props: z.any(),
+        text: textFieldSchema(),
       }),
       description:
         "The Text component displays text content with various styling options.",

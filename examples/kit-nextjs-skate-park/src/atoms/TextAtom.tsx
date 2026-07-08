@@ -1,15 +1,6 @@
-import { Text } from "@sitecore-content-sdk/nextjs";
+import { Text, TextFieldSchema } from "@sitecore-content-sdk/nextjs";
 
-export const TextAtom = ({
-  props,
-}: {
-  props: { text: string; props: { fields: object } };
-}) => {
+export const TextAtom = ({ props }: { props: { text: TextFieldSchema } }) => {
   const { text } = props;
-  return (
-    <Text
-      field={{ value: text, metadata: { ...props.props.fields } }}
-      editable={true}
-    />
-  );
+  return <Text field={text} editable={true} />;
 };
