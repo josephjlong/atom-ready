@@ -34,6 +34,7 @@ export const catalog = defineAtomsCatalog({
     Text: {
       props: z.object({
         text: z.string(),
+        props: z.any(),
       }),
       description:
         "The Text component displays text content with various styling options.",
