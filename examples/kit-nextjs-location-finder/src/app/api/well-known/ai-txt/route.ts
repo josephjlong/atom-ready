@@ -56,7 +56,8 @@ function resolveSiteUrl(request: NextRequest): string {
     return `${protocol}://${host}`;
   }
 
-  const defaultSite = sites?.[0];
+  const configuredSites = sites as Array<{ hostName?: string }>;
+  const defaultSite = configuredSites[0];
   if (defaultSite?.hostName) {
     return `https://${defaultSite.hostName}`;
   }
