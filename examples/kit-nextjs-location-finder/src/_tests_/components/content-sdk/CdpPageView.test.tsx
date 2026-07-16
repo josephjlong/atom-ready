@@ -8,7 +8,8 @@ import CdpPageView from '@/components/content-sdk/CdpPageView';
 jest.mock('@sitecore-content-sdk/nextjs', () => ({
   CdpHelper: {
     getPageVariantId: jest.fn(
-      (itemId, language, variantId, scope) => `${itemId}-${language}-${variantId}-${scope}`
+      (itemId, language, variantId, scope) =>
+        `${itemId}-${language}-${variantId}-${scope}`,
     ),
   },
   useSitecore: jest.fn(),
@@ -32,7 +33,9 @@ jest.mock('sitecore.config', () => ({
 import { useSitecore } from '@sitecore-content-sdk/nextjs';
 import { pageView } from '@sitecore-content-sdk/events';
 
-const mockedUseSitecore = useSitecore as jest.MockedFunction<typeof useSitecore>;
+const mockedUseSitecore = useSitecore as jest.MockedFunction<
+  typeof useSitecore
+>;
 const mockPageView = pageView as jest.MockedFunction<typeof pageView>;
 
 type MockSitecoreContext = ReturnType<typeof useSitecore>;
