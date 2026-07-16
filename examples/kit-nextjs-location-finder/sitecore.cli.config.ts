@@ -9,6 +9,11 @@ import scConfig from './sitecore.config';
 
 export default defineCliConfig({
   config: scConfig,
+  atoms: {
+    validation: {
+      breakOnError: false,
+    },
+  },
   build: {
     commands: [
       generateMetadata(),

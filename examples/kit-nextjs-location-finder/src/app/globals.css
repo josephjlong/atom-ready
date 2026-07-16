@@ -3,6 +3,7 @@
 @import '../assets/styles/column-splitter.css';
 
 @import 'tailwindcss';
+@source '../../node_modules/@json-render/shadcn/dist';
 
 /* bootstrap grid to tailwind plugin */
 @plugin 'tailwind-bootstrap-grid' {
