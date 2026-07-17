@@ -62,18 +62,30 @@ const Layout = ({ page, baseUrl: baseUrlProp }: LayoutProps): JSX.Element => {
 
   // Generate site-wide structured data (use request-derived baseUrl when provided so deployed URLs are correct)
   const baseUrl = baseUrlProp ?? getBaseUrl();
-  const websiteSchema = generateWebSiteSchema('Alaris', baseUrl, 'Find your nearest Alaris dealership');
-  const organizationSchema = generateOrganizationSchema('Alaris', baseUrl, undefined, 'Alaris - Premium automotive dealership network');
+  const websiteSchema = generateWebSiteSchema(
+    'Alaris',
+    baseUrl,
+    'Find your nearest Alaris dealership',
+  );
+  const organizationSchema = generateOrganizationSchema(
+    'Alaris',
+    baseUrl,
+    undefined,
+    'Alaris - Premium automotive dealership network',
+  );
 
   return (
     <>
       <Scripts />
       <SitecoreStyles layoutData={layout} />
-      
+
       {/* Site-wide structured data */}
       <StructuredData id="website-schema" data={websiteSchema as JsonLdValue} />
-      <StructuredData id="organization-schema" data={organizationSchema as JsonLdValue} />
-      
+      <StructuredData
+        id="organization-schema"
+        data={organizationSchema as JsonLdValue}
+      />
+
       {/* root placeholder for the app, which we add components to using route data */}
       <div className={`min-h-screen flex flex-col ${classNamesMain}`}>
         {page.mode.isDesignLibrary ? (
@@ -82,9 +94,7 @@ const Layout = ({ page, baseUrl: baseUrlProp }: LayoutProps): JSX.Element => {
               page={page}
               rendering={route}
               componentMap={componentMap}
-              loadServerImportMap={() =>
-                import('.sitecore/import-map.server')
-              }
+              loadServerImportMap={() => import('.sitecore/import-map.server')}
             />
           )
         ) : (
