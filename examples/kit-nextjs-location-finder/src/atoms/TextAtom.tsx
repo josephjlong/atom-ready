@@ -1,8 +1,12 @@
 import { Text } from '@sitecore-content-sdk/nextjs';
-import type { TextFieldSchema } from '@sitecore-content-sdk/nextjs/atoms';
+import type { TextField } from '@sitecore-content-sdk/nextjs';
 
-export const TextAtom = ({ props }: { props: { text: TextFieldSchema } }) => {
+export const TextAtom = ({ props }: { props: { text: TextField } }) => {
   const { text } = props;
 
-  return <Text field={text} editable={true} />;
+  return (
+    <>
+      <Text field={text} editable={true} />
+    </>
+  );
 };

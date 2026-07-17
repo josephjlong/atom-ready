@@ -34,7 +34,12 @@ export const catalog = defineAtomsCatalog({
     Heading: shadcnComponentDefinitions.Heading,
     Text: {
       props: z.object({
-        text: textFieldSchema(),
+        // Preserve editing metadata (`metadata`, `editable`) passed by Page Builder.
+        // `textFieldSchema()` strips unknown keys by default, which can disable inline editing.
+        text: textFieldSchema({
+          metadata: z.record(z.string(), z.unknown()).optional(),
+          editable: z.string().optional(),
+        }).passthrough(),
       }),
       description:
         'The Text component displays text content with various styling options.',
