@@ -18,7 +18,6 @@ import {
 import { StructuredData } from 'src/components/structured-data/StructuredData';
 import { getBaseUrl } from 'src/lib/utils';
 import type { JsonLdValue } from 'src/lib/structured-data/jsonld';
-import Providers from './Providers';
 
 const heading = Sora({
   weight: ['300', '400', '500'],
@@ -75,59 +74,57 @@ const Layout = ({ page, baseUrl: baseUrlProp }: LayoutProps): JSX.Element => {
       <StructuredData id="website-schema" data={websiteSchema as JsonLdValue} />
       <StructuredData id="organization-schema" data={organizationSchema as JsonLdValue} />
       
-      <Providers page={page}>
-        {/* root placeholder for the app, which we add components to using route data */}
-        <div className={`min-h-screen flex flex-col ${classNamesMain}`}>
-          {page.mode.isDesignLibrary ? (
-            route && (
-              <DesignLibraryApp
-                page={page}
-                rendering={route}
-                componentMap={componentMap}
-                loadServerImportMap={() =>
-                  import('.sitecore/import-map.server')
-                }
-              />
-            )
-          ) : (
-            <>
-              {/* Header placeholder - components handle their own semantic elements */}
-              <div id="header">
-                {route && (
-                  <AppPlaceholder
-                    page={page}
-                    componentMap={componentMap}
-                    name="headless-header"
-                    rendering={route}
-                  />
-                )}
-              </div>
-              {/* Main content area */}
-              <main id="content" role="main">
-                {route && (
-                  <AppPlaceholder
-                    page={page}
-                    componentMap={componentMap}
-                    name="headless-main"
-                    rendering={route}
-                  />
-                )}
-              </main>
-              {/* Footer placeholder - components handle their own semantic elements */}
-              <div id="footer">
-                {route && (
-                  <AppPlaceholder
-                    page={page}
-                    componentMap={componentMap}
-                    name="headless-footer"
-                    rendering={route}
-                  />
-                )}
-              </div>
-            </>
-          )}
-        </div>
-      </Providers>
+      {/* root placeholder for the app, which we add components to using route data */}
+      <div className={`min-h-screen flex flex-col ${classNamesMain}`}>
+        {page.mode.isDesignLibrary ? (
+          route && (
+            <DesignLibraryApp
+              page={page}
+              rendering={route}
+              componentMap={componentMap}
+              loadServerImportMap={() =>
+                import('.sitecore/import-map.server')
+              }
+            />
+          )
+        ) : (
+          <>
+            {/* Header placeholder - components handle their own semantic elements */}
+            <div id="header">
+              {route && (
+                <AppPlaceholder
+                  page={page}
+                  componentMap={componentMap}
+                  name="headless-header"
+                  rendering={route}
+                />
+              )}
+            </div>
+            {/* Main content area */}
+            <main id="content" role="main">
+              {route && (
+                <AppPlaceholder
+                  page={page}
+                  componentMap={componentMap}
+                  name="headless-main"
+                  rendering={route}
+                />
+              )}
+            </main>
+            {/* Footer placeholder - components handle their own semantic elements */}
+            <div id="footer">
+              {route && (
+                <AppPlaceholder
+                  page={page}
+                  componentMap={componentMap}
+                  name="headless-footer"
+                  rendering={route}
+                />
+              )}
+            </div>
+          </>
+        )}
+      </div>
       <SpeedInsights />
     </>
   );
